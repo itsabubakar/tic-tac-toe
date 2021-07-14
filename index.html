@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css-files/css/all.min.css">
+    <script src="script.js" defer></script>
+    <title>Another Tic Tac Toe</title>
+</head>
+<body>
+    <div class="game-container">
+        <div class="wins">
+            <div class="o-wins">
+                <div class="icons oo">O</div>
+                <p><span id="scoreO">0</span> Wins</p>
+            </div>
+            <div class="x-wins">
+                <div class="icons xx">X</div>
+                <p><span id="scoreX">0</span> Wins</p>
+            </div>
+            <div class="draw">
+                <div class="icons draw"><i class="far fa-handshake"></i></div>
+                <p><span id="draw">0</span> Draws</p>
+            </div>
+        </div>
+        
+        <div class="game-board" id="board">
+            <div class="input-box" data-cell></div>
+            <div class="input-box" data-cell></div>
+            <div class="input-box" data-cell></div>
+            <div class="input-box" data-cell></div>
+            <div class="input-box" data-cell></div>
+            <div class="input-box" data-cell></div>
+            <div class="input-box" data-cell></div>
+            <div class="input-box" data-cell></div>
+            <div class="input-box" data-cell></div>
+        </div>
+
+        <div class="winning-message-conc" id="winningMessage">
+            <div class="winning-message">
+                <div data-winning-message-text></div>
+                <button id="close-btn"><i class="fas fa-minus"></i></button>
+            </div>
+        </div>
+
+        <div class="control-btn">
+            <button class="new-game">New Game</button>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,223 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --cell-size: 100px;
+    --mark-size: calc(var(--cell-size) * .9);
+    --o: #00aad4;
+    --x: #ffd42a;
+}
+
+@font-face {
+    font-family: 'Valera Round';
+    /* font-style: normal; */
+    /* font-weight: 400; */
+    src: local(''), url('fonts/Valera/VarelaRound-Regular.ttf') format('truetype');
+}
+
+body {
+    font-family: "valera round";
+ background-color: rgba(0,0,0,0.9);
+ margin: 0;
+ color: rgb(185, 181, 181);
+}
+
+.game-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.game-board {
+     display: grid;
+     grid-template-columns: repeat(3, 100px);
+     justify-content: center;
+}
+
+.input-box {
+    width: var(--cell-size);
+    border: 1px solid rgb(128, 126, 126);
+    height: var(--cell-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.input-box.x,
+.input-box.o {
+    cursor: not-allowed;
+}
+
+.input-box.x::before,
+.input-box.x::after {
+    background-color: var(--x);
+}
+
+.input-box.o::before{
+    background-color: var(--o);
+}
+
+.game-board.x .input-box:not(.x):not(.o):hover::before,
+.game-board.x .input-box:not(.x):not(.o):hover::after,
+.game-board.o .input-box:not(.x):not(.o):hover::before {
+    background-color: lightgrey;
+}
+
+.input-box:first-child,
+.input-box:nth-child(2),
+.input-box:nth-child(3) {
+    border-top: none;
+}
+
+.input-box:last-child,
+.input-box:nth-child(8),
+.input-box:nth-child(7) {
+    border-bottom: none;
+}
+
+.input-box:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.input-box:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.input-box.x::before,
+.input-box.x::after,
+.game-board.x .input-box:not(.x):not(.o):hover::before,
+.game-board.x .input-box:not(.x):not(.o):hover::after  {
+    content: "";
+    border-radius: 10px;
+    position: absolute;
+    width: calc(var(--mark-size) * .15);
+    height: var(--mark-size);
+}
+
+.input-box.x::before,
+.game-board.x .input-box:not(.x):not(.o):hover::before {
+    transform: rotate(45deg);
+}
+
+.input-box.x::after,
+.game-board.x .input-box:not(.x):not(.o):hover::after  {
+    transform: rotate(-45deg);
+}
+
+.input-box.o::before,
+.input-box.o::after,
+.game-board.o .input-box:not(.x):not(.o):hover::before,
+.game-board.o .input-box:not(.x):not(.o):hover::after   {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+}
+
+.input-box.o::before,
+.game-board.o .input-box:not(.x):not(.o):hover::before {
+    width: var(--mark-size);
+    height: var(--mark-size);
+}
+
+.input-box.o::after,
+.game-board.o .input-box:not(.x):not(.o):hover::after  {
+    width: calc(var(--mark-size) * .7);
+    height: calc(var(--mark-size) * .7);
+    background-color: #121213;}
+
+.winning-message-conc {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    height: 100%;
+    width: 100%;
+}
+
+.winning-message {
+ background-color: rgba(0,0,0,0.9);
+  width: 90vw;
+  height: 30vh;
+  padding-bottom: 20px;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  position: relative;
+  border-radius: 10px;
+}
+
+#close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    background: transparent;
+    border-color: transparent;
+    color: pink;
+    cursor: pointer;
+  }
+
+.winning-message-conc.show {
+    display: flex;
+}
+
+.wins {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    padding: 20px;
+    text-align: center;
+}
+
+.icons {
+    color: #fff;
+    font-size: 50px;
+}
+
+.xx {
+    color: var(--x);
+}
+
+.oo {
+    color: var(--o);
+}
+
+.wins * {
+    padding: 0 2px;
+}
+
+.control-btn {
+    display: flex;
+    justify-content: center;
+    margin: 20px 20px;
+}
+
+.new-game, .restart {
+    font-size: 20px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+}
+
+.new-game:hover, .restart:hover {
+    color: #000;
+    background: #fff;
+}
+
+
+
+
+
